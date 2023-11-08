@@ -49,7 +49,7 @@ let movies = [
     Director: {
       Name: "Steven Spielberg",
       Bio: "Steven Spielberg is an American film director, producer, and screenwriter. He was born on December 18, 1946, in Cincinnati, Ohio. He is known for his diverse films, which range from science-fiction fare, including such classics as Close Encounters of the Third Kind and E.T.: The Extra-Terrestrial, to historical dramas, notably Schindler’s List and Saving Private Ryan.",
-      Year: 1946
+      Year: 1946 
     },
     ImageURL: "https://www.imdb.com/title/tt0108052/mediaviewer/rm3260118016?ref_=ttmi_mi_all_pos_31",
     Featured: true,
@@ -75,61 +75,61 @@ let movies = [
     Title: "La Vita e bella",
     Description: "",
     Genre: {
-      Name: "Drama",
-      Description: "Drama is a genre of storytelling in film, television, and literature that is meant to be performed in front of an audience. It is plot-driven and often features characters in conflict at a crucial moment in their lives. Dramas can be serious or comedic and often deal with emotional themes such as addiction, infidelity, poverty, and corruption",
+      Name: "Comedy-Drama",
+      Description: "Comedy-drama is a genre that combines elements of comedy and drama. It equally balances the elements of comedy and drama, often dealing with grounded characters and situations. The aim of comedy is to make people laugh, while drama aims to evoke emotions such as sadness, fear, or anger. Comedy-drama typically involves realistic situations and circumstances, relatable and unpredictable characters, and grounded narratives with character-driven plots. The ratio between the drama and comedy can vary, but most of the time there is an equal measure of both, with neither side dominating.",
     },
     Director: {
       Name: "Roberto Benigni",
-      Bio: "",
-      Year: ""
+      Bio: "Roberto Benigni was born on October 27, 1952, in Manciano La Misericordia, Castiglion Fiorentino, Tuscany, Italy. He is an actor, writer, and director, known for his work in Life Is Beautiful (1997), The Tiger and the Snow (2005), and Down by Law (1986). He has been married to Nicoletta Braschi since December 26, 1991.",
+      Year: "1952"
     },
-    ImageURL: "",
+    ImageURL: "https://i.pinimg.com/originals/1c/6d/1f/1c6d1fffdd74baffca5fa155ebc32f72.jpg",
     Featured: true,
     Year: "1997"
   },
   {
     Title: "Ponyo",
-    Description: "",
+    Description: "Ponyo is a 2008 Japanese animated fantasy film written and directed by Hayao Miyazaki. The story follows a Pyoung boy named Sosuke who develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him. The film features an outstanding roster of voice talent and is a visually stunning fairy tale that's a sweetly poetic treat for children of all ages. Ponyo is loosely based on Hans Christian Andersen's Little Mermaid tale and is one of Miyazaki's most kid-friendly films to date, with memorable characters and positive messages.",
     Genre: {
-      Name: "Fantasy",
-      Description: ""
+      Name: "Animated Fantasy",
+      Description: "Animated fantasy is a genre that combines elements of animation and fantasy. It typically involves imaginative and magical worlds, mythical creatures, and fantastical elements. The genre is often geared towards children and families, but can also appeal to adults. Examples of animated fantasy films include Ponyo, Spirited Away, The Lion King, and Frozen."
     },
     Director: {
       Name: "Hayao Miyazaki",
-      Bio: "",
-      Year: ""
+      Bio: "Hayao Miyazaki is a Japanese animator, filmmaker, and manga artist. He co-founded Studio Ghibli, a film and animation studio, and has attained international acclaim as a masterful storyteller and creator of Japanese animated feature films. Miyazaki has been described as combining elements of Walt Disney, Steven Spielberg, and Orson Welles. He has won numerous awards, including an Honorary Academy Award for his impact on animation and cinema. Miyazaki's films often incorporate themes of anti-war, environmentalism, and self-discovery",
+      Year: "1941"
     },
-    ImageURL: "https://www.imdb.com/title/tt0108052/mediaviewer/rm3260118016?ref_=ttmi_mi_all_pos_31",
+    ImageURL: "https://fesapusewebsite.blob.core.windows.net/fathom/ponyo-1000x1480-r2-3c7dd4adc4c5119cdacef777caf4657a.jpg",
     Featured: true,
     Year: "2008"
   },
   {
     Title: "Clockwork Orange",
-    Description: "",
+    Description: "A Clockwork Orange is a 1971 dystopian crime film directed by Stanley Kubrick. The film follows the story of a young delinquent named Alex and his gang, who commit violent crimes and undergo an experimental psychological conditioning technique to reform them. The film employs disturbing, violent images to comment on psychiatry, juvenile delinquency, youth gangs, and other social, political, and economic subjects in a dystopian near-future Britain. The film is a cold, dystopian nightmare with a very dark sense of humor and has been the subject of much debate and analysis over the years.",
     Genre: {
-      Name: "",
-      Description: "",
+      Name: "Dystopian Crime",
+      Description: "Dystopian crime is a subgenre of dystopian fiction that combines elements of crime and detective fiction. It typically involves a bleak, oppressive society in which crime is rampant and the government or other authority figures use extreme measures to maintain control. The genre often explores themes of social injustice, corruption, and the struggle for freedom and individuality. Examples of dystopian crime films include A Clockwork Orange, Blade Runner, and Escape from New York.",
     },
     Director: {
       Name: "Stanley Kubrick",
-      Bio: "",
-      Year: ""
+      Bio: "Stanley Kubrick was an American film director, producer, screenwriter, and photographer. He was born on July 26, 1928, in New York City and is widely considered one of the greatest filmmakers of all time. Kubrick's films spanned a number of genres and are known for their intense attention to detail, innovative cinematography, extensive set design, and dark humor. He was a perfectionist who assumed direct control over most aspects of his filmmaking, cultivating an expertise in writing, editing, color-timing, promotion, and exhibition. Kubrick was famous for the painstaking care taken in researching his films and staging scenes, performed in close coordination with his actors, crew, and other collaborators.",
+      Year: "1928"
     },
     ImageURL: "https://www.imdb.com/title/tt0108052/mediaviewer/rm3260118016?ref_=ttmi_mi_all_pos_31",
     Featured: true,
-    Year: "1994"
+    Year: "1971"
   },
   {
     Title: "Inglourious Basterds",
-    Description: "",
+    Description: "Inglourious Basterds is a 2009 dystopian crime film directed by Quentin Tarantino. The film follows a group of Jewish-American guerrilla soldiers led by Lt. Aldo Raine, who plan to assassinate Nazi leaders in a cinema in Paris during World War II. The film features an ensemble cast, including Brad Pitt, Christoph Waltz, and Mélanie Laurent, and is known for its non-linear narrative, stylized violence, and dark humor. The film was inspired by the 1978 war film The Inglorious Bastards and has been praised for its performances, direction, and screenplay.",
     Genre: {
-      Name: "Comedy-Drama",
-      Description: ""
+      Name: "Dystopian Crime",
+      Description: "Dystopian crime is a subgenre of dystopian fiction that combines elements of crime and detective fiction. It typically involves a bleak, oppressive society in which crime is rampant and the government or other authority figures use extreme measures to maintain control. The genre often explores themes of social injustice, corruption, and the struggle for freedom and individuality. Examples of dystopian crime films include A Clockwork Orange, Blade Runner, and Escape from New York."
     },
    Director: {
       Name: "Quentin Tarantino",
-      Bio: "",
-      Year: ""
+      Bio: "Quentin Tarantino is an American film director, screenwriter, producer, cinematographer, and actor. He was born on March 27, 1963, in Knoxville, Tennessee. Tarantino is known for his stylized violence, extended dialogue, and references to popular culture. He has directed and written several critically acclaimed and commercially successful films, including Pulp Fiction, Kill Bill, Inglourious Basterds, Django Unchained, and The Hateful Eight. Tarantino's films are noted for their neo-noir violence, razor-sharp dialogue, and fascination with film and pop culture.",
+      Year: "1963"
     },
     ImageURL: "https://www.imdb.com/title/tt0108052/mediaviewer/rm3260118016?ref_=ttmi_mi_all_pos_31",
     Featured: true,
@@ -137,33 +137,33 @@ let movies = [
   },
   {
     Title: "The Silence of the Lambs",
-    Description: "",
+    Description: "The Silence of the Lambs is a 1991 dystopian crime film directed by Jonathan Demme. The film follows FBI trainee Clarice Starling as she seeks the help of incarcerated cannibalistic serial killer Dr. Hannibal Lecter to catch another notorious serial killer known as Buffalo Bill. The film is known for its gripping narrative, sharp dialogue, and chilling performances by Jodie Foster and Anthony Hopkins. The Silence of the Lambs is a classic thriller that delves into the depths of human darkness, examining the intricate dynamics of power, manipulation, and obsession.",
     Genre: {
-      Name: "",
-      Description: ""
+      Name: "Dystopian Crime",
+      Description: "Dystopian crime is a subgenre of dystopian fiction that combines elements of crime and detective fiction. It typically involves a bleak, oppressive society in which crime is rampant and the government or other authority figures use extreme measures to maintain control. The genre often explores themes of social injustice, corruption, and the struggle for freedom and individuality. Examples of dystopian crime films include A Clockwork Orange, Blade Runner, and Escape from New York."
     },
       Director: {
       Name: "Jonathan Demme",
-      Bio: "",
-      Year: ""
+      Bio: "Jonathan Demme was an American film director, producer, and screenwriter. He was born on February 22, 1944, in Baldwin, New York, and died on April 26, 2017, in New York City. Demme was best known for directing The Silence of the Lambs, which won him the Academy Award for Best Director. He also directed several critically acclaimed films, including Something Wild, Married to the Mob, Philadelphia, Rachel Getting Married, and Stop Making Sense. Demme was known for his character-driven films, and his work often dealt with social issues.",
+      Year: "1944"
     },
-    ImageURL: "https://www.imdb.com/title/tt0108052/mediaviewer/rm3260118016?ref_=ttmi_mi_all_pos_31",
+    ImageURL: "https://originalvintagemovieposters.com/wp-content/uploads/2010/07/Silence-of-the-lambs.jpg",
     Featured: true,
     Year: "1991"
   },
   {
     Title: "Shutter Island",
-    Description: "",
+    Description: "Shutter Island is a 2010 American post-apocalyptic psychological horror thriller film directed by Martin Scorsese. The film follows U.S. Marshal Teddy Daniels and his partner Chuck Aule as they investigate the disappearance of a patient on a remote island. The film explores themes of mental health, trauma, and the nature of reality, creating a suspenseful and tense atmosphere throughout. The film features an ensemble cast, including Leonardo DiCaprio, Mark Ruffalo, and Ben Kingsley, and has been praised for its intricate plot, atmospheric visuals, and thought-provoking themes.",
     Genre: {
-      Name: "Drama/neo-noir psychological thriller",
-      Description: ""
+      Name: "Post-apocalyptic psychological horror thriller",
+      Description: "Post-apocalyptic psychological horror thriller is a subgenre of dystopian fiction that combines elements of horror, psychological thriller, and post-apocalyptic fiction. It typically involves a bleak, oppressive society in which characters face psychological trauma, mental health issues, and supernatural or horrific elements. The genre often explores themes of survival, trauma, and the struggle for sanity in a world gone mad. Examples of post-apocalyptic psychological horror thriller films include Shutter Island, The Road, and 28 Days Later."
     },
     Director: {
       Name: "Martin Scorsese",
-      Bio: "",
-      Year: ""
+      Bio: "Martin Scorsese is an American film director, producer, screenwriter, and actor. He was born on November 17, 1942, in New York City. Scorsese is known for his gritty, meticulous filmmaking style and has directed and written several critically acclaimed and commercially successful films, including Taxi Driver, Raging Bull, Goodfellas, The Departed, and The Irishman. He has received many accolades, including an Academy Award, four BAFTA Awards, three Emmy Awards, a Grammy Award, three Golden Globe Awards, and two Directors Guild of America Awards.",
+      Year: "1942"
     },
-    ImageURL: "",
+    ImageURL: "https://www.vintagemovieposters.co.uk/wp-content/uploads/2015/01/IMG_0916.jpg",
     Featured: false,
     Year: "2010"
   },
@@ -172,30 +172,30 @@ let movies = [
     Description: "The movie Joker is a psychological thriller and drama film based on DC Comics characters. It follows the story of Arthur Fleck, a failed clown and aspiring stand-up comic whose descent into mental illness and nihilism inspires a violent countercultural revolution against the wealthy in a decaying Gotham City. The film has been praised for its groundbreaking comic book adaptation, cinematography, and performances, but has also been criticized for its sympathetic portrayal of a homicidal maniac",
     Genre: {
       Name: "Psychological thriller",
-      description: ""
+      description: "Psychological thriller is a genre that combines elements of thriller and psychological fiction. It deals with psychological narratives in a thriller or suspenseful setting, often incorporating elements of mystery, drama, action, and paranoia. The genre emphasizes the mental states of its characters, their perceptions, thoughts, and distortions, and their struggle to grasp reality. Psychological thrillers often involve mind games, manipulation, and psychological warfare between characters, exploring dark and taboo themes such as mental illness, obsession, violence, and trauma.
     },
     Director: {
       Name: "Todd Phillips",
-      Bio: "",
-      Year: ""
+      Bio: "Todd Phillips is an American film director, producer, and screenwriter. He was born on December 20, 1970, in New York City. Phillips is known for directing and producing several successful films, including Road Trip, The Hangover film series, Due Date, and Joker. He has received several accolades for his work, including an Academy Award nomination for Best Director for Joker. Phillips is known for his dark humor and his ability to create compelling characters and stories that resonate with audiences.",
+      Year: "1970"
     },
-    ImageURL: "",
+    ImageURL: "https://thejournalix.com/wp-content/uploads/2019/10/Joker-Official-Images-Dolby-Cinema-Theaters-Poster-01.jpg",
     Featured: false,
     Year: "2019"
   },
   {
     Title: "Django Unchained",
-    Description: "",
+    Description: "Django Unchained is a 2012 American post-apocalyptic Western film directed by Quentin Tarantino. The film follows a freed slave named Django and a German bounty hunter named Dr. King Schultz as they set out to rescue Django's wife from a brutal plantation owner in Mississippi. The film is known for its stylized violence, dark humor, and memorable performances by Jamie Foxx, Christoph Waltz, and Leonardo DiCaprio. The genre of Django Unchained is Western, Drama, and Actio",
     Genre: {
       Name: "Drama/Western Drama",
-      Description: ""
+      Description: "Western drama is a genre that combines elements of Western and drama. It typically involves a setting in the American Old West, featuring cowboys, gunslingers, and outlaws, and explores themes of justice, morality, and survival. The genre often emphasizes character development, relationships, and interpersonal conflicts, and can incorporate elements of romance, tragedy, and action. Examples of Western drama films include Django Unchained, The Magnificent Seven, and Unforgiven."
     },
     Director: {
       Name: "Quentin Tarantino",
-      Bio: "",
-      Year: ""
+      Bio: "Quentin Tarantino is an American film director, screenwriter, producer, actor, and author. He was born on March 27, 1963, in Knoxville, Tennessee. Tarantino's films are characterized by stylized violence, extended dialogue including a pervasive use of profanity, and references to popular culture. He has directed and written several critically acclaimed and commercially successful films, including Pulp Fiction, Kill Bill, Inglourious Basterds, Django Unchained, and The Hateful Eight. Tarantino's films are known for their neo-noir violence, razor-sharp dialogue, and fascination with film and pop culture.",
+      Year: "1963"
     },
-    ImageURL: "",
+    ImageURL: "https://originalvintagemovieposters.com/wp-content/uploads/2020/05/Django-5980-scaled-1030x1536.jpg",
     Featured: true,
     Year: "2012"
   }

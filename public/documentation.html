@@ -4,10 +4,208 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documentation</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <h1>Documentation</h1>
   <h2>Documentation for the movie app - MoveFlix - API</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas dolorum incidunt corporis inventore perferendis hic assumenda odio beatae, eum itaque iure obcaecati voluptate, asperiores saepe unde minima commodi tempora aspernatur ad rerum quas. Alias rerum quasi porro voluptates quis modi dolores obcaecati expedita saepe maiores provident quaerat est dignissimos, neque, vel quam ducimus explicabo unde? Sequi hic aut nostrum doloribus placeat quia enim consequatur assumenda necessitatibus excepturi! Ratione neque rerum aut nemo magnam facilis! Veniam impedit id dolor exercitationem rem incidunt quo minima doloremque animi et perferendis dolorem minus, magnam illum pariatur sapiente dolore reiciendis ullam error natus vitae amet.</p>
+  <h2>Movie API - Endpoints</h2>
+  <table>
+    <tr>
+      <th>Business logic</th>
+      <th>URL</th>
+      <th>HTTP Method</th>
+      <th>query parameters in the URL</th>
+      <th>Request Body - data format</th>
+      <th>Response Body - data format</th>
+    </tr>
+    <tr>
+      <td>Return a list of ALL movies</td>
+      <td>localhost:8080/movies/</td>
+      <td>GET</td>
+      <td>none</td>
+      <td>None</td>
+      <td>A JSON object holding data about all the movies.</td>
+    </tr>
+    <tr>
+      <td>Get Movie by title</td>
+      <td>localhost:8080/movies/</td>
+      <td>GET</td>
+      <td>[Movie Title]. Example: <span>Spirited%20Away</span></td>
+      <td>None</td>
+      <td>A JSON object holding data about a single movie. Example:
+        <p>
+          <pre>
+          {
+          "title": "Spirited Away",
+          "description": "Spirited Away is a Japanese animated fantasy film
+           directed by Hayao Miyazaki. The movie follows the story of a 
+           young girl named Chihiro who becomes trapped in a strange new world
+            of spirits and must call upon the courage she never knew she had to 
+            free herself and her family.",
+          "genre": {
+              "name": "fantasy/adventure",
+              "description": "Fantasy/adventure is a genre that combines 
+              elements of fantasy, such as magic and mythical creatures, 
+              with adventure, such as quests and journeys to new and 
+              exciting places. Examples include The Lord of the Rings, 
+              Spirited Away, and Alice in Wonderland"
+          },
+          "director": {
+              "name": "Hayao Miyazaki",
+              "bio": "Hayao Miyazaki is a Japanese animator, filmmaker, 
+              and manga artist. He co-founded Studio Ghibli, a film and 
+              animation studio, and has attained international acclaim 
+              as a masterful storyteller and creator of Japanese 
+              animated feature films. Miyazaki has been described as 
+              combining elements of Walt Disney, Steven Spielberg, 
+              and Orson Welles. He has won numerous awards, including 
+              an Honorary Academy Award for his impact on animation 
+              and cinema. Miyazaki's films often incorporate themes of 
+              anti-war, environmentalism, and self-discovery",
+              "year": "1941"
+          },
+          "imageURL": "https://www.imdb.com/title/tt0245429/mediaviewer/rm4207852801/?ref_=tt_ov_i",
+          "featured": true,
+          "year": "2003"
+          }
+          </pre>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Return data about a genre (description) by name/title (e.g., "Thriller")</td>
+      <td>localhost:8080/movies/genre/</td>
+      <td>GET</td>
+      <td>[Genre Name]. example: <span>Drama</span></td>
+      <td>None</td>
+      <td>A JSON object holding data about a genre including a description.
+        <p>
+          <pre>
+            {
+              "Name": "Drama",
+              "Description": "Drama is a genre of storytelling in film, television, 
+              and literature that is meant to be performed in front of an audience. 
+              It is plot-driven and often features characters in conflict at a 
+              crucial moment in their lives. Dramas can be serious or comedic 
+              and often deal with emotional themes such as addiction, infidelity, 
+              poverty, and corruption"
+            }
+          </pre>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Return data about a director (bio, birth year, death year) by name;</td>
+      <td>localhost:8080/movies/directors/</td>
+      <td>GET</td>
+      <td>[director name]. example: <span>Hayao%20Miyazaki</span></td>
+      <td>none</td>
+      <td>A JSON object holding data about the director including bio, birth year and death year:
+        <p>
+          <pre>
+            {
+              "Name": "Hayao Miyazaki",
+              "Bio": "Hayao Miyazaki is a Japanese animator, filmmaker, and 
+              manga artist. He co-founded Studio Ghibli, a film and animation 
+              studio, and has attained international acclaim as a masterful 
+              storyteller and creator of Japanese animated feature films. 
+              Miyazaki has been described as combining elements of Walt Disney, 
+              Steven Spielberg, and Orson Welles. He has won numerous awards, 
+              including an Honorary Academy Award for his impact on animation 
+              and cinema. Miyazaki's films often incorporate themes of anti-war, 
+              environmentalism, and self-discovery",
+              "Year": "1941"
+            }
+          </pre>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Add a new user</td>
+      <td>localhost:8080/users</td>
+      <td>POST</td>
+      <td>none</td>
+      <td>A JSON object holding data about the user to be added, structured like this:
+        <p>
+          <pre>
+          {
+            "name": "Mary",
+            "favoriteMovies": ""
+          }
+          </pre>
+        </p>
+      </td>
+      <td>A JSON object holding data about the user that was added, including an ID, uniquely created by uuid.
+        <p>Example:</p>
+        <pre>
+          {
+            "name": "Mary",
+            "favoriteMovies": "",
+            "id": "e0f166ca-a2e0-486a-92da-a8e0480762bd"
+          }
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Update user info (username)</td>
+      <td>localhost:8080/users/</td>
+      <td>PUT</td>
+      <td>[ID], example: 1</td>
+      <td>A JSON object holding data about the updated name of the user. Example:
+        <pre>
+          {
+            "id": 1,
+            "name": "Kim Updated Name",
+            "favoriteMovies": []
+          }
+        </pre>
+      </td>
+      <td>A JSON object holding the updated data of the user. Example:
+        <pre>
+          {
+            "id": 1,
+            "name": "Kim Updated Name",
+            "favoriteMovies": []
+          }
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Add a favorite movie to favoriteMovies of the user.</td>
+      <td>localhost:8080/users/</td>
+      <td>POST</td>
+      <td>[ID]/[movieTitle]. Example: 1/Joker</td>
+      <td>none</td>
+      <td>A JSON object holding the data of the user including id, name and favoriteMovies. Example:
+        <pre>
+          {
+            "id": 1,
+            "name": "Kim Updated Name",
+            "favoriteMovies": [
+              "Joker"
+            ]
+          }
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Remove a movie from the favoriteMovies list of user.</td>
+      <td>localhost:8080/users/</td>
+      <td>DELETE</td>
+      <td>[ID]/[movieTitle]. Example: 2/The%20Fountain</td>
+      <td>none</td>
+      <td>A Text message indicating wich movie was removed from the user [DI]´s array.</td>
+    </tr>
+    <tr>
+      <td>Removing a user</td>
+      <td>localhost:8080/users</td>
+      <td>DELETE</td>
+      <td>[ID] - Example: 2/</td>
+      <td>none</td>
+      <td>A Text message indicating wich user was removed from the user list.</td>
+    </tr>
+  </table>
 </body>
 </html>
