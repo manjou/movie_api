@@ -3,9 +3,23 @@ const express = require('express'),
   uuid = require('uuid'),
   morgan = require('morgan'),
   fs = require('fs'), // import built in node modules fs and path
+  mongoose = require('mongoose'),
   path = require('path');
+  require('dotenv').config();
 
 const app = express();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT, ()=> {
+      console.log('listening on port', process.env.PORT)
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+
 
 app.use(bodyParser.json());
 
@@ -172,7 +186,7 @@ let movies = [
     Description: "The movie Joker is a psychological thriller and drama film based on DC Comics characters. It follows the story of Arthur Fleck, a failed clown and aspiring stand-up comic whose descent into mental illness and nihilism inspires a violent countercultural revolution against the wealthy in a decaying Gotham City. The film has been praised for its groundbreaking comic book adaptation, cinematography, and performances, but has also been criticized for its sympathetic portrayal of a homicidal maniac",
     Genre: {
       Name: "Psychological thriller",
-      description: "Psychological thriller is a genre that combines elements of thriller and psychological fiction. It deals with psychological narratives in a thriller or suspenseful setting, often incorporating elements of mystery, drama, action, and paranoia. The genre emphasizes the mental states of its characters, their perceptions, thoughts, and distortions, and their struggle to grasp reality. Psychological thrillers often involve mind games, manipulation, and psychological warfare between characters, exploring dark and taboo themes such as mental illness, obsession, violence, and trauma.
+      description: "Psychological thriller is a genre that combines elements of thriller and psychological fiction. It deals with psychological narratives in a thriller or suspenseful setting, often incorporating elements of mystery, drama, action, and paranoia. The genre emphasizes the mental states of its characters, their perceptions, thoughts, and distortions, and their struggle to grasp reality. Psychological thrillers often involve mind games, manipulation, and psychological warfare between characters, exploring dark and taboo themes such as mental illness, obsession, violence, and trauma.",
     },
     Director: {
       Name: "Todd Phillips",
@@ -185,9 +199,9 @@ let movies = [
   },
   {
     Title: "Django Unchained",
-    Description: "Django Unchained is a 2012 American post-apocalyptic Western film directed by Quentin Tarantino. The film follows a freed slave named Django and a German bounty hunter named Dr. King Schultz as they set out to rescue Django's wife from a brutal plantation owner in Mississippi. The film is known for its stylized violence, dark humor, and memorable performances by Jamie Foxx, Christoph Waltz, and Leonardo DiCaprio. The genre of Django Unchained is Western, Drama, and Actio",
+    Description: "Django Unchained is a 2012 American post-apocalyptic Western film directed by Quentin Tarantino. The film follows a freed slave named Django and a German bounty hunter named Dr. King Schultz as they set out to rescue Django's wife from a brutal plantation owner in Mississippi. The film is known for its stylized violence, dark humor, and memorable performances by Jamie Foxx, Christoph Waltz, and Leonardo DiCaprio. The genre of Django Unchained is Western, Drama, and Action.",
     Genre: {
-      Name: "Drama/Western Drama",
+      Name: "Western Drama",
       Description: "Western drama is a genre that combines elements of Western and drama. It typically involves a setting in the American Old West, featuring cowboys, gunslingers, and outlaws, and explores themes of justice, morality, and survival. The genre often emphasizes character development, relationships, and interpersonal conflicts, and can incorporate elements of romance, tragedy, and action. Examples of Western drama films include Django Unchained, The Magnificent Seven, and Unforgiven."
     },
     Director: {
@@ -332,6 +346,6 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(8080, () => {
-  console.log('Your app is listening on port 8080.');
-});
+// app.listen(8080, () => {
+//   console.log('Your app is listening on port 8080.');
+// });
