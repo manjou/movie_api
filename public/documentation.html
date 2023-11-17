@@ -102,7 +102,7 @@
       <td>localhost:5000/movies/</td>
       <td>GET</td>
       <td>[Movie Title]. 
-        <br>Example: <span>Spirited%20Away</span>
+        <br>Example: <span>"Spirited%20Away"</span>
       <p>Replace empty space with %20!</p></td>
       <td>None</td>
       <td>A JSON object holding data about a single movie. Example:
@@ -137,8 +137,8 @@
       <td>Return movies with a genre (description) by Genre.Name (e.g., "Thriller, Animation")</td>
       <td>localhost:5000/movies/genre/</td>
       <td>GET</td>
-      <td>[Genre Name]. 
-        <br>Example: <span>Animation</span></td>
+      <td>[Genre Name]
+        <br>Example: <span>"Animation"</span></td>
       <td>None</td>
       <td>A JSON object holding data of all movies with a certain genre.
         <p>
@@ -195,7 +195,8 @@
       <td>Return data about a director (bio, birth year, death year) by name;</td>
       <td>localhost:5000/movies/directors/</td>
       <td>GET</td>
-      <td>[director name]. example: <span>Hayao%20Miyazaki</span></td>
+      <td>[Director.Name]
+        <br>Example: <span>"Hayao%20Miyazaki"</span></td>
       <td>none</td>
       <td>A JSON object holding data about the director including bio, birth year and death year:
         <p>
@@ -225,10 +226,13 @@
       <td>A JSON object holding data about the user to be added, structured like this:
         <p>
           <pre>
-          {
-            "name": "Mary",
-            "favoriteMovies": ""
-          }
+            {
+              "Username": "Mary Jane",
+              "Password": "sdfDIEdcflkdieEI3",
+              "Email": "mary_jane@garden.com",
+              "BirthDay": "1990-03-05",
+              "FavoriteMovies": []
+            }
           </pre>
         </p>
       </td>
@@ -236,10 +240,14 @@
         <p>Example:</p>
         <pre>
           {
-            "name": "Mary",
-            "favoriteMovies": "",
-            "id": "e0f166ca-a2e0-486a-92da-a8e0480762bd"
-          }
+            "Username": "Mary Jane",
+            "Email": "mary_jane@garden.com",
+            "Password": "sdfDIEdcflkdieEI3",
+            "BirthDay": "1990-03-05",
+            "FavoriteMovies": [],
+            "_id": "6557563aff1e9fb6bcfe536c",
+            "__v": 0
+        }
         </pre>
       </td>
     </tr>
@@ -247,29 +255,36 @@
       <td>Update user info (username)</td>
       <td>localhost:5000/users/</td>
       <td>PUT</td>
-      <td>[ID], example: 1</td>
+      <td>[Username]
+        <br> Example: "Arya%20Stark"</td>
       <td>A JSON object holding data about the updated name of the user. Example:
         <pre>
           {
-            "id": 1,
-            "name": "Kim Updated Name",
-            "favoriteMovies": []
-          }
+            "Password": "arya5678",
+            "Username": "Arya Stark"
+        }
         </pre>
       </td>
       <td>A JSON object holding the updated data of the user. Example:
         <pre>
           {
-            "id": 1,
-            "name": "Kim Updated Name",
-            "favoriteMovies": []
-          }
+            "FavoriteMovies": [],
+            "_id": "6553dac5f4a7d04cdd71560f",
+            "BirthDay": "1995-03-15T00:00:00.000Z",
+            "Email": "arya@example.com",
+            "FavoriteMovie": [
+                "65538c1440e0bd4ea749cc23",
+                "65538c1440e0bd4ea749cc26"
+            ],
+            "Password": "arya5678",
+            "Username": "Arya Stark"
+        }
         </pre>
       </td>
     </tr>
     <tr>
       <td>Add a favorite movie to favoriteMovies of the user.</td>
-      <td>localhost:5000/users/</td>
+      <td>localhost:5000/movie/</td>
       <td>POST</td>
       <td>[ID]/[movieTitle]. Example: 1/Joker</td>
       <td>none</td>
