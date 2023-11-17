@@ -9,7 +9,7 @@
 <body>
   <h1>Documentation</h1>
   <h2>Documentation for the movie app - MoveFlix - API</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas dolorum incidunt corporis inventore perferendis hic assumenda odio beatae, eum itaque iure obcaecati voluptate, asperiores saepe unde minima commodi tempora aspernatur ad rerum quas. Alias rerum quasi porro voluptates quis modi dolores obcaecati expedita saepe maiores provident quaerat est dignissimos, neque, vel quam ducimus explicabo unde? Sequi hic aut nostrum doloribus placeat quia enim consequatur assumenda necessitatibus excepturi! Ratione neque rerum aut nemo magnam facilis! Veniam impedit id dolor exercitationem rem incidunt quo minima doloremque animi et perferendis dolorem minus, magnam illum pariatur sapiente dolore reiciendis ullam error natus vitae amet.</p>
+  <p>lorum ipsum</p>
   <h2>Movie API - Endpoints</h2>
   <table>
     <tr>
@@ -22,83 +22,178 @@
     </tr>
     <tr>
       <td>Return a list of ALL movies</td>
-      <td>localhost:8080/movies/</td>
+      <td>localhost:5000/movies/</td>
       <td>GET</td>
       <td>none</td>
       <td>None</td>
-      <td>A JSON object holding data about all the movies.</td>
+      <td>A JSON object holding data about all the movies.
+        <p>
+          <pre>
+            [
+            {
+                "Genre": {
+                    "Name": "Historical Drama",
+                    "Description": "Historical drama films are set in the past and focus on historical events, figures, and periods."
+                },
+                "Director": {
+                    "Name": "Steven Spielberg",
+                    "Bio": "Steven Spielberg is an American film director, producer, and screenwriter.",
+                    "Birth": "1946"
+                },
+                "_id": "65538c1440e0bd4ea749cc21",
+                "Title": "Schindler's List",
+                "Description": "Schindler's List is a 1993 American epic historical drama film directed by Steven Spielberg.",
+                "ImagePath": "https://www.imdb.com/title/tt0108052/mediaviewer/rm3260118016?ref_=ttm...",
+                "Featured": true,
+                "Release": "1994",
+                "Actors": [
+                    "Liam Neeson",
+                    "Ben Kingsley"
+                ]
+            },
+            {
+                "Genre": {
+                    "Name": "Romance",
+                    "Description": "Romance films are love stories that focus on passion, emotion, and the affectionate romantic involvement of the main characters."
+                },
+                "Director": {
+                    "Name": "James Cameron",
+                    "Bio": "James Cameron is a Canadian film director, producer, and screenwriter.",
+                    "Birth": "1954"
+                },
+                "_id": "65538c1440e0bd4ea749cc22",
+                "Title": "Titanic",
+                "Description": "Titanic is a 1997 American epic romance and disaster film directed by James Cameron.",
+                "ImagePath": "https://www.imdb.com/title/tt0120338/mediaviewer/rm1234567890?ref_=ttm_ql_pv_1",
+                "Featured": false,
+                "Release": "1997",
+                "Actors": [
+                    "Leonardo DiCaprio",
+                    "Kate Winslet"
+                ]
+            },
+            {
+                "Genre": {
+                    "Name": "Animation",
+                    "Description": "Animation films involve the rapid display of a sequence of images to create an illusion of movement."
+                },
+                "Director": {
+                    "Name": "Hayao Miyazaki",
+                    "Bio": "Hayao Miyazaki is a Japanese animator, filmmaker, screenwriter, author, and co-founder of Studio Ghibli.",
+                    "Birth": "1941"
+                },
+                "_id": "65538c1440e0bd4ea749cc23",
+                "Title": "Spirited Away",
+                "Description": "Spirited Away is a 2001 Japanese animated fantasy film written and directed by Hayao Miyazaki.",
+                "ImagePath": "https://www.imdb.com/title/tt0245429/mediaviewer/rm1234567890?ref_=ttm_ql_pv_1",
+                "Featured": true,
+                "Release": "2001",
+                "Actors": [
+                    "Rumi Hiiragi",
+                    "Miyu Irino"
+                ]
+            },
+          </pre>
+        </p>
+      </td>
     </tr>
     <tr>
       <td>Get Movie by title</td>
-      <td>localhost:8080/movies/</td>
+      <td>localhost:5000/movies/</td>
       <td>GET</td>
-      <td>[Movie Title]. Example: <span>Spirited%20Away</span></td>
+      <td>[Movie Title]. 
+        <br>Example: <span>Spirited%20Away</span>
+      <p>Replace empty space with %20!</p></td>
       <td>None</td>
       <td>A JSON object holding data about a single movie. Example:
         <p>
           <pre>
-          {
-          "title": "Spirited Away",
-          "description": "Spirited Away is a Japanese animated fantasy film
-           directed by Hayao Miyazaki. The movie follows the story of a 
-           young girl named Chihiro who becomes trapped in a strange new world
-            of spirits and must call upon the courage she never knew she had to 
-            free herself and her family.",
-          "genre": {
-              "name": "fantasy/adventure",
-              "description": "Fantasy/adventure is a genre that combines 
-              elements of fantasy, such as magic and mythical creatures, 
-              with adventure, such as quests and journeys to new and 
-              exciting places. Examples include The Lord of the Rings, 
-              Spirited Away, and Alice in Wonderland"
-          },
-          "director": {
-              "name": "Hayao Miyazaki",
-              "bio": "Hayao Miyazaki is a Japanese animator, filmmaker, 
-              and manga artist. He co-founded Studio Ghibli, a film and 
-              animation studio, and has attained international acclaim 
-              as a masterful storyteller and creator of Japanese 
-              animated feature films. Miyazaki has been described as 
-              combining elements of Walt Disney, Steven Spielberg, 
-              and Orson Welles. He has won numerous awards, including 
-              an Honorary Academy Award for his impact on animation 
-              and cinema. Miyazaki's films often incorporate themes of 
-              anti-war, environmentalism, and self-discovery",
-              "year": "1941"
-          },
-          "imageURL": "https://www.imdb.com/title/tt0245429/mediaviewer/rm4207852801/?ref_=tt_ov_i",
-          "featured": true,
-          "year": "2003"
+            {
+              "Genre": {
+                  "Name": "Animation",
+                  "Description": "Animation films involve the rapid display of a sequence of images to create an illusion of movement."
+              },
+              "Director": {
+                  "Name": "Hayao Miyazaki",
+                  "Bio": "Hayao Miyazaki is a Japanese animator, filmmaker, screenwriter, author, and co-founder of Studio Ghibli.",
+                  "Birth": "1941"
+              },
+              "_id": "65538c1440e0bd4ea749cc23",
+              "Title": "Spirited Away",
+              "Description": "Spirited Away is a 2001 Japanese animated fantasy film written and directed by Hayao Miyazaki.",
+              "ImagePath": "https://www.imdb.com/title/tt0245429/mediaviewer/rm1234567890?ref_=ttm_ql_pv_1",
+              "Featured": true,
+              "Release": "2001",
+              "Actors": [
+                  "Rumi Hiiragi",
+                  "Miyu Irino"
+              ]
           }
           </pre>
         </p>
       </td>
     </tr>
     <tr>
-      <td>Return data about a genre (description) by name/title (e.g., "Thriller")</td>
-      <td>localhost:8080/movies/genre/</td>
+      <td>Return movies with a genre (description) by Genre.Name (e.g., "Thriller, Animation")</td>
+      <td>localhost:5000/movies/genre/</td>
       <td>GET</td>
-      <td>[Genre Name]. example: <span>Drama</span></td>
+      <td>[Genre Name]. 
+        <br>Example: <span>Animation</span></td>
       <td>None</td>
-      <td>A JSON object holding data about a genre including a description.
+      <td>A JSON object holding data of all movies with a certain genre.
         <p>
           <pre>
-            {
-              "Name": "Drama",
-              "Description": "Drama is a genre of storytelling in film, television, 
-              and literature that is meant to be performed in front of an audience. 
-              It is plot-driven and often features characters in conflict at a 
-              crucial moment in their lives. Dramas can be serious or comedic 
-              and often deal with emotional themes such as addiction, infidelity, 
-              poverty, and corruption"
-            }
+            [
+    {
+        "Genre": {
+            "Name": "Animation",
+            "Description": "Animation films involve the rapid display of a sequence of images to create an illusion of movement."
+        },
+        "Director": {
+            "Name": "Hayao Miyazaki",
+            "Bio": "Hayao Miyazaki is a Japanese animator, filmmaker, screenwriter, author, and co-founder of Studio Ghibli.",
+            "Birth": "1941"
+        },
+        "_id": "65538c1440e0bd4ea749cc23",
+        "Title": "Spirited Away",
+        "Description": "Spirited Away is a 2001 Japanese animated fantasy film written and directed by Hayao Miyazaki.",
+        "ImagePath": "https://www.imdb.com/title/tt0245429/mediaviewer/rm1234567890?ref_=ttm_ql_pv_1",
+        "Featured": true,
+        "Release": "2001",
+        "Actors": [
+            "Rumi Hiiragi",
+            "Miyu Irino"
+        ]
+    },
+    {
+        "Genre": {
+            "Name": "Animation",
+            "Description": "Animation films involve the rapid display of a sequence of images to create an illusion of movement."
+        },
+        "Director": {
+            "Name": "Hayao Miyazaki",
+            "Bio": "Hayao Miyazaki is a Japanese animator, filmmaker, screenwriter, author, and co-founder of Studio Ghibli.",
+            "Birth": "1941"
+        },
+        "_id": "65538c1440e0bd4ea749cc2b",
+        "Title": "Ponyo",
+        "Description": "Ponyo is a 2008 Japanese animated fantasy film written and directed by Hayao Miyazaki.",
+        "ImagePath": "https://www.imdb.com/title/tt0876563/mediaviewer/rm1234567890?ref_=ttm_ql_pv_1",
+        "Featured": true,
+        "Release": "2008",
+        "Actors": [
+            "Tomoko Yamaguchi",
+            "Kazushige Nagashima"
+        ]
+    }
+]
           </pre>
         </p>
       </td>
     </tr>
     <tr>
       <td>Return data about a director (bio, birth year, death year) by name;</td>
-      <td>localhost:8080/movies/directors/</td>
+      <td>localhost:5000/movies/directors/</td>
       <td>GET</td>
       <td>[director name]. example: <span>Hayao%20Miyazaki</span></td>
       <td>none</td>
@@ -124,7 +219,7 @@
     </tr>
     <tr>
       <td>Add a new user</td>
-      <td>localhost:8080/users</td>
+      <td>localhost:5000/users</td>
       <td>POST</td>
       <td>none</td>
       <td>A JSON object holding data about the user to be added, structured like this:
@@ -150,7 +245,7 @@
     </tr>
     <tr>
       <td>Update user info (username)</td>
-      <td>localhost:8080/users/</td>
+      <td>localhost:5000/users/</td>
       <td>PUT</td>
       <td>[ID], example: 1</td>
       <td>A JSON object holding data about the updated name of the user. Example:
@@ -174,7 +269,7 @@
     </tr>
     <tr>
       <td>Add a favorite movie to favoriteMovies of the user.</td>
-      <td>localhost:8080/users/</td>
+      <td>localhost:5000/users/</td>
       <td>POST</td>
       <td>[ID]/[movieTitle]. Example: 1/Joker</td>
       <td>none</td>
@@ -192,7 +287,7 @@
     </tr>
     <tr>
       <td>Remove a movie from the favoriteMovies list of user.</td>
-      <td>localhost:8080/users/</td>
+      <td>localhost:5000/users/</td>
       <td>DELETE</td>
       <td>[ID]/[movieTitle]. Example: 2/The%20Fountain</td>
       <td>none</td>
@@ -200,7 +295,7 @@
     </tr>
     <tr>
       <td>Removing a user</td>
-      <td>localhost:8080/users</td>
+      <td>localhost:5000/users</td>
       <td>DELETE</td>
       <td>[ID] - Example: 2/</td>
       <td>none</td>
