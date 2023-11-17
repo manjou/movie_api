@@ -204,10 +204,10 @@ app.get('/movies/:Title', async (req, res) => {
 });
 
 // getting data about a Genre / READ
-app.get('/movies/genre/:Genre', async (req, res) => {
-  await Movies.find({ "Genre.Name": req.params.Genre.Name })
-    .then((movies) => {
-      res.json(movies.Genre);
+app.get('/movies/genre/:GenreName', async (req, res) => {
+  await Movies.findOne({ "Genre.Name": req.params.Genre })
+    .then((movie) => {
+      res.json(movie.Genre);
     })
     .catch((err) => {
       console.error(err);
@@ -217,9 +217,9 @@ app.get('/movies/genre/:Genre', async (req, res) => {
 
 // getting data about director, (name, bio, birthyear, deathyear) / READ
 app.get('/movies/directors/:Director', async (req, res) => {
-  await Movies.find({ "Director.Name": req.params.Director })
-    .then((movies) => {
-      res.json(movies);
+  await Movies.findOne({ "Director.Name": req.params.Director })
+    .then((movie) => {
+      res.json(movie.Director);
     })
     .catch((err) => {
       console.error(err);
