@@ -199,8 +199,8 @@ app.delete(
 
 
 // DELETE User
-app.delete('
-  /users/:Username', 
+app.delete(
+  '/users/:Username', 
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
