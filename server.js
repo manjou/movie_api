@@ -34,14 +34,14 @@ app.use(cors({
   }
 }));
 
-let auth = require('./auth')(app);
+let auth = require('./auth.js')(app);
 const passport = require('passport');
-require('./passport');
+require('./passport.js');
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     // listen for requests
-    app.listen(process.env.PORT, ()=> {
+    app.listen(process.env.PORT, '0.0.0.0', ()=> {
       console.log('listening on port', process.env.PORT)
     })
   })
@@ -89,11 +89,25 @@ app.post(
   // either chaining of methods .not().isEmpty()
   // or use .isLenth({min: 5}) - minimum value of 5 characters
   [
-    check('Username', 'Username is required').isLength({min: 5}),
-    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-    check('Password', 'Password is required').not().isEmpty(),
-    check('Email', 'Email does not appear to be valid').isEmail()
-  ], async (req, res) => {
+    check(
+      'Username', 
+      'Username is required')
+      .isLength({min: 5}),
+    check(
+      'Username', 
+      'Username contains non alphanumeric characters - not allowed.')
+      .isAlphanumeric(),
+    check(
+      'Password', 
+      'Password is required')
+      .not().isEmpty(),
+    check(
+      'Email', 
+      'Email does not appear to be valid')
+      .isEmail()
+  ], 
+  async (req, res) => {
+
     // check the validation object for errors
     let errors = validationResult(req);
 
@@ -103,6 +117,7 @@ app.post(
   
   let hashedPassword = Users.hashPassword(req.body.Password);
   // passport.authenticate('jwt', { session: false }), 
+  
   await Users.findOne({ Username: req.body.Username })
     .then ((user) => {
       if (user) {
@@ -159,20 +174,20 @@ BirthDay: Date
 }*/
 app.put(
   '/users/:Username', 
-  [
-    check('Username', 'Username is required').isLength({min: 5}),
-    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-    check('Password', 'Password is required').not().isEmpty(),
-    check('Email', 'Email does not appear to be valid').isEmail()
-  ]
-  // passport.authenticate('jwt', { session: false }), 
+  // [
+  //   check('Username', 'Username is required').isLength({min: 5}),
+  //   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  //   check('Password', 'Password is required').not().isEmpty(),
+  //   check('Email', 'Email does not appear to be valid').isEmail()
+  // ],
+  passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
     // check the validation object for errors
-    let errors = validationResult(req);
+    // let errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
+    // if (!errors.isEmpty()) {
+    //   return res.status(422).json({ errors: errors.array() });
+    // }
 
     // CONDITION TO CHECK USER AUTHORIZATION
     if(req.user.Username !== req.params.Username){

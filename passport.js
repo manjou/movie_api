@@ -18,7 +18,7 @@ const passport = require('passport'),
           await Users.findOne({ Username: username})
           .then ((user) => {
             if (!user) {
-              console.log('incorrect usernam');
+              console.log('incorrect username');
               return callback(null, false, {
                 message: 'Incorrect username or password.',
               });
