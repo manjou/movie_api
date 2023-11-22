@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <td>Return a list of ALL movies</td>
-      <td>localhost:5000/movies/</td>
+      <td>https://myflix-api-qeb7.onrender.com/movies/</td>
       <td>GET</td>
       <td>none</td>
       <td>None</td>
@@ -99,7 +99,7 @@
     </tr>
     <tr>
       <td>Get Movie by title</td>
-      <td>localhost:5000/movies/</td>
+      <td>https://myflix-api-qeb7.onrender.com/movies/</td>
       <td>GET</td>
       <td>[Movie Title]. 
         <br>Example: <span>"Spirited%20Away"</span>
@@ -193,7 +193,7 @@
     </tr>
     <tr>
       <td>Return data about a director (bio, birth year, death year) by name;</td>
-      <td>localhost:5000/movies/directors/</td>
+      <td>https://myflix-api-qeb7.onrender.com/movies/directors/</td>
       <td>GET</td>
       <td>[Director.Name]
         <br>Example: <span>"Hayao%20Miyazaki"</span></td>
@@ -220,7 +220,7 @@
     </tr>
     <tr>
       <td>Add a new user</td>
-      <td>localhost:5000/users</td>
+      <td>https://myflix-api-qeb7.onrender.com/users</td>
       <td>POST</td>
       <td>none</td>
       <td>A JSON object holding data about the user to be added, structured like this:
@@ -237,6 +237,7 @@
         </p>
       </td>
       <td>A JSON object holding data about the user that was added, including an ID, uniquely created by uuid.
+        <br>The password is hashed using bcrypt.
         <p>Example:</p>
         <pre>
           {
@@ -252,59 +253,86 @@
       </td>
     </tr>
     <tr>
-      <td>Update user info (username)</td>
-      <td>localhost:5000/users/</td>
-      <td>PUT</td>
-      <td>[Username]
-        <br> Example: "Arya%20Stark"</td>
-      <td>A JSON object holding data about the updated name of the user. Example:
+      <td>Login User</td>
+      <td>https://myflix-api-qeb7.onrender.com/login</td>
+      <td>POST</td>
+      <td>[:Username&Password]
+        <br> Example: "?Username=Testuser4&Password=Test1234"</td>
+      <td>none</td>
+      <td>A JSON object holding the updated data of the user. Example:
         <pre>
           {
-            "Password": "arya5678",
-            "Username": "Arya Stark"
+            "user": {
+                "_id": "655ded72a984b2250e72b4b1",
+                "Username": "Testuser4",
+                "Email": "testuser4@user4.com",
+                "Password": "$2b$10$aBjDo7.XTrZWLruqjf6SneUuvKtAl1XOxrlobWIxGnP6VH2ztqU4.",
+                "FavoriteMovies": [],
+                "__v": 0
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTVkZWQ3MmE5ODRiMjI1MGU3MmI0YjEiLCJVc2VybmFtZSI6IlRlc3R1c2VyNCIsIkVtYWlsIjoidGVzdHVzZXI0QHVzZXI0LmNvbSIsIlBhc3N3b3JkIjoiJDJiJDEwJGFCakRvNy5YVHJaV0xydXFqZjZTbmVVdXZLdEFsMVhPeHJsb2JXSXhHblA2VkgyenRxVTQuIiwiRmF2b3JpdGVNb3ZpZXMiOltdLCJfX3YiOjAsImlhdCI6MTcwMDY2MjkwNiwiZXhwIjoxNzAxMjY3NzA2LCJzdWIiOiJUZXN0dXNlcjQifQ.Z9lOJBdnAbQZ-__SHaB8q4B9EsnM15oMPKBRNxTraxE"
         }
         </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Update user info (id)</td>
+      <td>https://myflix-api-qeb7.onrender.com/users/</td>
+      <td>PUT</td>
+      <td>[id]
+        <br> Example: "655ded72a984b2250e72b4b1"</td>
+      <td>A JSON object holding data about the updated name of the user. Expected data is Username, Password, Example:
+        <pre>
+          {
+            "Username": "Testuser4",
+            "Password": "Test1234",
+            "Email": "testuserNew@user4.com"
+          }
+        </pre>
+        <br>The token created at login is required in the header of the request.
       </td>
       <td>A JSON object holding the updated data of the user. Example:
         <pre>
           {
+            "_id": "655ded72a984b2250e72b4b1",
+            "Username": "Testuser4",
+            "Email": "testuserNew@user4.com",
+            "Password": "$2b$10$Q3J40Jr1qSYIfnNR4Z5Vn.H8Geoj3QwJC7brC2zeh8.EPjtKoLthm",
             "FavoriteMovies": [],
-            "_id": "6553dac5f4a7d04cdd71560f",
-            "BirthDay": "1995-03-15T00:00:00.000Z",
-            "Email": "arya@example.com",
-            "FavoriteMovie": [
-                "65538c1440e0bd4ea749cc23",
-                "65538c1440e0bd4ea749cc26"
-            ],
-            "Password": "arya5678",
-            "Username": "Arya Stark"
+            "__v": 0
         }
         </pre>
       </td>
     </tr>
     <tr>
       <td>Add a favorite movie to favoriteMovies of the user.</td>
-      <td>localhost:5000/movie/</td>
+      <td>https://myflix-api-qeb7.onrender.com/users/</td>
       <td>POST</td>
-      <td>[ID]/[movieTitle]. Example: 1/Joker</td>
-      <td>none</td>
+      <td>[:Username/movies/:movieId]. 
+        <br>Example: "Testuser4/movies/65538c1440e0bd4ea749cc2d"</td>
+      <td>none
+        <br>The token created at login is required in the header of the request.
+      </td>
       <td>A JSON object holding the data of the user including id, name and favoriteMovies. Example:
         <pre>
           {
-            "id": 1,
-            "name": "Kim Updated Name",
-            "favoriteMovies": [
-              "Joker"
-            ]
-          }
+            "_id": "655ded72a984b2250e72b4b1",
+            "Username": "Testuser4",
+            "Email": "testuserNew@user4.com",
+            "Password": "$2b$10$Q3J40Jr1qSYIfnNR4Z5Vn.H8Geoj3QwJC7brC2zeh8.EPjtKoLthm",
+            "FavoriteMovies": [
+                "65538c1440e0bd4ea749cc2d"
+            ],
+            "__v": 0
+        }
         </pre>
       </td>
     </tr>
     <tr>
       <td>Remove a movie from the favoriteMovies list of user.</td>
-      <td>localhost:5000/users/</td>
+      <td>https://myflix-api-qeb7.onrender.com/users/</td>
       <td>DELETE</td>
-      <td>[ID]/[movieTitle]. Example: 2/The%20Fountain</td>
+      <td>[:Username/movies/:MovieID]. Example: "Testuser4/movies/65538c1440e0bd4ea749cc25"</td>
       <td>none</td>
       <td>A Text message indicating wich movie was removed from the user [DI]´s array.</td>
     </tr>
