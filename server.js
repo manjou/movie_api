@@ -117,7 +117,7 @@ app.post(
   
   let hashedPassword = Users.hashPassword(req.body.Password);
   // passport.authenticate('jwt', { session: false }), 
-  
+
   await Users.findOne({ Username: req.body.Username })
     .then ((user) => {
       if (user) {
@@ -173,47 +173,73 @@ Email: String,
 BirthDay: Date
 }*/
 app.put(
-  '/users/:Username', 
-  // [
-  //   check('Username', 'Username is required').isLength({min: 5}),
-  //   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-  //   check('Password', 'Password is required').not().isEmpty(),
-  //   check('Email', 'Email does not appear to be valid').isEmail()
-  // ],
+  '/users/:id', 
+  [
+    // check('Username', 'Username is required').isLength({min: 5}),
+    // check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    // check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()
+  ],
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
     // check the validation object for errors
-    // let errors = validationResult(req);
+    let errors = validationResult(req);
 
-    // if (!errors.isEmpty()) {
-    //   return res.status(422).json({ errors: errors.array() });
-    // }
-
-    // CONDITION TO CHECK USER AUTHORIZATION
-    if(req.user.Username !== req.params.Username){
-      return res.status(400).send('Permission denied');
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
     }
-    // CONDITION ENDS
-    let hashedPassword = Users.hashPassword(req.body.Password);
-    await Users.findOneAndUpdate(
-      { Username: req.params.Username }, 
-      { 
-        $set:
-          {
-            Username: req.body.Username,
-            Password: hashedPassword,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
-          }
-      },
-      { new: true }) // This line makes sure that the updated document is returned
-    .then((updatedUser) => {
-      res.json(updatedUser);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    })
+    try{
+      // CONDITION TO CHECK USER AUTHORIZATION
+      // if(req.user.Username !== req.params.Username){
+      //   return res.status(400).send('Permission denied');
+      // }
+      let toUpdateUser= {};
+      if(req.body.Email == null){
+        res.status(500).send('Need to provide at least the Email');
+      }
+      if(req.body.Username != null){
+        toUpdateUser.Username = req.body.Username;
+      }
+      if(req.body.Password != null){
+        let hashedPassword = Users.hashPassword(req.body.Password);
+        toUpdateUser.Password = hashedPassword;
+      }
+      if(req.body.Birthday != null){
+        toUpdateUser.BirthDay = req.body.Birthday;
+      }
+      
+      toUpdateUser.Email = req.body.Email;
+
+
+      // CONDITION ENDS
+      console.log('to update uswr:', toUpdateUser);
+      console.log('to update id:', req.params.id);
+
+      
+      await Users.findOneAndUpdate(
+        { _id: req.params.id }, 
+        { 
+          $set: toUpdateUser
+            // {
+            //   Username: req.body.Username,
+            //   Password: hashedPassword,
+            //   Email: req.body.Email,
+            //   Birthday: req.body.Birthday
+            // }
+        },
+        { new: true }) // This line makes sure that the updated document is returned
+      .then((updatedUser) => {
+        res.json(updatedUser);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      })
+
+    }catch(error){
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    }
   }
 );
 
@@ -223,7 +249,7 @@ app.post(
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user.Username !== req.params.Usernam){
+   if(req.user.Username !== req.params.Username){
     return res.status(400).send('Permission denied');
     }
     // CONDITION ENDS
