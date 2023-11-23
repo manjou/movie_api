@@ -275,7 +275,7 @@ app.delete(
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user.Username !== req.params.Username){
+   if(req.user.Username !== req.params.Usernam){
     return res.status(400).send('Permission denied');
   }
     // CONDITION ENDS
@@ -300,7 +300,7 @@ app.delete(
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user.Username !== req.params.Usernam){
+   if(req.user.Username !== req.params.Username){
     return res.status(400).send('Permission denied');
     }
     // CONDITION ENDS

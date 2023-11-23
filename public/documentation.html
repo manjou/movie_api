@@ -16,17 +16,28 @@
       <th>Business logic</th>
       <th>URL</th>
       <th>HTTP Method</th>
-      <th>query parameters in the URL</th>
-      <th>Request Body - data format</th>
+      <th>query parameters in the URL /
+      <br>Requested additional information</th>
+      <th>Request Body - data format </th>
       <th>Response Body - data format</th>
     </tr>
     <tr>
       <td>Return a list of ALL movies</td>
       <td>https://myflix-api-qeb7.onrender.com/movies/</td>
       <td>GET</td>
-      <td>none</td>
-      <td>None</td>
-      <td>A JSON object holding data about all the movies.
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>None</em></p> 
+        <br><strong>Required additional information:</strong>      
+        <br><em>The token created at login is required in the header of the request.</em>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding data about all the movies.</p>
         <p>
           <pre>
             [
@@ -101,11 +112,21 @@
       <td>Get Movie by title</td>
       <td>https://myflix-api-qeb7.onrender.com/movies/</td>
       <td>GET</td>
-      <td>[Movie Title]. 
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Movie Title]
         <br>Example: <span>"Spirited%20Away"</span>
-      <p>Replace empty space with %20!</p></td>
-      <td>None</td>
-      <td>A JSON object holding data about a single movie. Example:
+        <p>Replace empty space with %20!</p></em></p> 
+        <br><strong>Required additional information:</strong>      
+        <p>The token created at login is required in the header of the request.</p>
+        </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding data about a single movie. Example:</p>
         <p>
           <pre>
             {
@@ -137,10 +158,20 @@
       <td>Return movies with a genre (description) by Genre.Name (e.g., "Thriller, Animation")</td>
       <td>localhost:5000/movies/genre/</td>
       <td>GET</td>
-      <td>[Genre Name]
-        <br>Example: <span>"Animation"</span></td>
-      <td>None</td>
-      <td>A JSON object holding data of all movies with a certain genre.
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Genre Name]
+        <br>Example: <span>"Animation"</span></em></p> 
+        <br><strong>Required additional information:</strong>      
+        <p>The token created at login is required in the header of the request.</p>
+        </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding data of all movies with a certain genre.</p>
         <p>
           <pre>
             [
@@ -195,10 +226,20 @@
       <td>Return data about a director (bio, birth year, death year) by name;</td>
       <td>https://myflix-api-qeb7.onrender.com/movies/directors/</td>
       <td>GET</td>
-      <td>[Director.Name]
-        <br>Example: <span>"Hayao%20Miyazaki"</span></td>
-      <td>none</td>
-      <td>A JSON object holding data about the director including bio, birth year and death year:
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Director.Name]
+        <br>Example: <span>"Hayao%20Miyazaki"</span></em></p> 
+        <br><strong>Required additional information:</strong>      
+        <p>The token created at login is required in the header of the request.</p>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding data about the director including bio, birth year and death year:</p>
         <p>
           <pre>
             {
@@ -222,8 +263,15 @@
       <td>Add a new user</td>
       <td>https://myflix-api-qeb7.onrender.com/users</td>
       <td>POST</td>
-      <td>none</td>
-      <td>A JSON object holding data about the user to be added, structured like this:
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>None</em></p> 
+        <br><strong>Required additional information:</strong>      
+        <br><em>The token created at login is required in the header of the request.</em>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>A JSON object holding data about the user to be added, structured like this:</em></p>
         <p>
           <pre>
             {
@@ -236,7 +284,9 @@
           </pre>
         </p>
       </td>
-      <td>A JSON object holding data about the user that was added, including an ID, uniquely created by uuid.
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding data about the user that was added, including an ID, uniquely created by uuid.</p>
         <br>The password is hashed using bcrypt.
         <p>Example:</p>
         <pre>
@@ -256,10 +306,19 @@
       <td>Login User</td>
       <td>https://myflix-api-qeb7.onrender.com/login</td>
       <td>POST</td>
-      <td>[:Username&Password]
-        <br> Example: "?Username=Testuser4&Password=Test1234"</td>
-      <td>none</td>
-      <td>A JSON object holding the updated data of the user. Example:
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Username&Password]</em></p> 
+        <p>Example: 
+          <br>"?Username=Testuser4&Password=Test1234"</p>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding the updated data of the user. Example:</p>
         <pre>
           {
             "user": {
@@ -279,9 +338,17 @@
       <td>Update user info (id)</td>
       <td>https://myflix-api-qeb7.onrender.com/users/</td>
       <td>PUT</td>
-      <td>[id]
-        <br> Example: "655ded72a984b2250e72b4b1"</td>
-      <td>A JSON object holding data about the updated name of the user. Expected data is Username, Password, Example:
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:id]</em></p> 
+        <p>Example: 
+          <br>"655ded72a984b2250e72b4b1"</p>
+        <br><strong>Required additional information:</strong>      
+        <br><em>The token created at login is required in the header of the request.</em>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>A JSON object holding data about the updated name of the user. Expected data is Username, Password, Example:</em></p>
         <pre>
           {
             "Username": "Testuser4",
@@ -289,9 +356,10 @@
             "Email": "testuserNew@user4.com"
           }
         </pre>
-        <br>The token created at login is required in the header of the request.
       </td>
-      <td>A JSON object holding the updated data of the user. Example:
+      <td>
+        <strong>Response Body - data format</strong>
+        <p>A JSON object holding the updated data of the user. Example:</p>
         <pre>
           {
             "_id": "655ded72a984b2250e72b4b1",
@@ -308,12 +376,22 @@
       <td>Add a favorite movie to favoriteMovies of the user.</td>
       <td>https://myflix-api-qeb7.onrender.com/users/</td>
       <td>POST</td>
-      <td>[:Username/movies/:movieId]. 
-        <br>Example: "Testuser4/movies/65538c1440e0bd4ea749cc2d"</td>
-      <td>none
-        <br>The token created at login is required in the header of the request.
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Username/movies/:movieId]</em></p> 
+        <p>Example: 
+          <br>"Testuser4/movies/65538c1440e0bd4ea749cc2d"</p>
+        <br><strong>Required additional information:</strong>      
+        <br><em>The token created at login is required in the header of the request.</em>
       </td>
-      <td>A JSON object holding the data of the user including id, name and favoriteMovies. Example:
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format </strong>
+        <p>A JSON object holding the data of the user including id, name and favoriteMovies. 
+          Example:</p>
         <pre>
           {
             "_id": "655ded72a984b2250e72b4b1",
@@ -332,17 +410,54 @@
       <td>Remove a movie from the favoriteMovies list of user.</td>
       <td>https://myflix-api-qeb7.onrender.com/users/</td>
       <td>DELETE</td>
-      <td>[:Username/movies/:MovieID]. Example: "Testuser4/movies/65538c1440e0bd4ea749cc25"</td>
-      <td>none</td>
-      <td>A Text message indicating wich movie was removed from the user [DI]´s array.</td>
-    </tr>
-    <tr>
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Username/movies/:MovieID]</em></p> 
+        <p>Example: 
+          <br>"Testuser4/movies/65538c1440e0bd4ea749cc25"</p>
+        <br><strong>Required additional information:</strong>      
+        <br><em>The token created at login is required in the header of the request.</em>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format </strong>
+        <pre>
+        {
+        "_id": "655ded72a984b2250e72b4b1",
+        "Username": "Testuser4",
+        "Email": "testuserNew@user4.com",
+        "Password": "$2b$10$Q3J40Jr1qSYIfnNR4Z5Vn.H8Geoj3QwJC7brC2zeh8.EPjtKoLthm",
+        "FavoriteMovies": [
+            "65538c1440e0bd4ea749cc2d"
+        ],
+        "__v": 0
+        }
+        </pre>
+      </td>
+      </tr>
+      <tr>
       <td>Removing a user</td>
-      <td>localhost:5000/users</td>
+      <td>https://myflix-api-qeb7.onrender.com/users/</td>
       <td>DELETE</td>
-      <td>[ID] - Example: 2/</td>
-      <td>none</td>
-      <td>A Text message indicating wich user was removed from the user list.</td>
+      <td>
+        <strong>query parameters in the URL:</strong>
+        <p><em>[:Username]</em></p> 
+        <p>Example: 
+          <br>"?Username=Testuser4</p>
+        <br><strong>Required additional information:</strong>      
+        <br><em>The token created at login is required in the header of the request.</em>
+      </td>
+      <td>
+        <strong>Request Body - data format </strong>
+        <p><em>None</em></p>
+      </td>
+      <td>
+        <strong>Response Body - data format </strong>
+        <p>A Text message indicating wich user was removed from the user list.</p>
+      </td>
     </tr>
   </table>
 </body>
