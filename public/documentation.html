@@ -5,7 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documentation</title>
   <base href="/public/">
-  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../css/styles.css"> -->
+  <style>
+    body {
+  box-sizing: border-box;
+  margin: 20px;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+table {
+  font-family: 'Courier New', Courier, monospace;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid darkgrey;
+  text-align: left;
+  vertical-align: top;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td:nth-child(6) {
+  max-width: 500px;
+}
+td:nth-child(5) {
+  max-width: 250px;
+  overflow: auto;
+}
+td:nth-child(5) pre {
+  max-width: 250px;
+  overflow: auto;
+}
+
+td:nth-child(6) pre {
+  width: 400px;
+  overflow: auto;
+}
+
+
+
+  </style>
 </head>
 <body>
   <h1>Documentation</h1>
