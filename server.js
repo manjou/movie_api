@@ -381,7 +381,7 @@ app.get('/movies/director/:Director', passport.authenticate('jwt', { session: fa
 
 // Read/GET the documentation file
 app.get('/documentation', (req, res) => {
-  res.sendFile('public/documentation.html', { root: __dirname });
+  res.sendFile('public/documentation.html', { root: __dirname, headers: {'Content-Type': 'text/html'} });
 });
 
 // Error handling
