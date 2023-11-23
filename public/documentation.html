@@ -11,9 +11,34 @@
   box-sizing: border-box;
   margin: 20px;
   font-family: 'Courier New', Courier, monospace;
-
 }
 
+h1, h2 {
+  font-family: monospace;
+  color: #333;
+  margin-top: 2em;
+}
+
+ol, li {
+  width: 80%;
+  background-color: lightgray;
+  padding: 0.1em;
+  margin: 0.8em;
+  margin-bottom: 0;
+}
+li {
+  font-weight: bold;
+}
+pre {
+  background-color: white;
+  padding: 0.4em;
+  font-weight: 300;
+  margin: 0.8em;
+}
+
+div {
+  width: 80%;
+}
 table {
   font-family: 'Courier New', Courier, monospace;
   border-collapse: collapse;
@@ -54,8 +79,37 @@ td:nth-child(6) pre {
 </head>
 <body>
   <h1>Documentation</h1>
-  <h2>Documentation for the movie app - MoveFlix - API</h2>
-  <p>lorum ipsum</p>
+  <h1>Documentation for the movie app - MoveFlix - API</h2>
+  <p>Welcome to the documentation for the RESTful API for movie data and user.</p>
+  <p>This API is build using Node.js, MongoDB and Mongoose, Express, Passport, JWT, bcrypt and other techonologies
+    to provide a platform for accessing and manipulating movie and user information. </p>
+  <p>For further information, go to my GitHub Repo:  <a href="https://github.com/manjou/movie_api">https://github.com/manjou/movie_api</a>
+  </p>
+  <h2>Using the API</h2>
+  <p>MoveFlix is accessible online at <a href="https://myflix-api-qeb7.onrender.com/">https://myflix-api-qeb7.onrender.com/</a>. You can make requests directly to this URL to interact with the API.</p>
+  <p>Or you can clone the repo and using it locally. You can follow the installation instructions and make modifications and run tests as needed.</p>
+  <p>Please note that this REST API is part of my Fullstack Development journey at CareerFoundry, representing my Achievement 2. As I continue to learn and progress, the next milestone involves building the frontend for the MoveFlix Web App using React. Kindly be aware that, as a learner, there might be occasional bugs, and your understanding is appreciated.</p>
+  <h2>Installation</h2>
+  <ol>
+    <li>Clone the Repository
+      <div></div>
+      <div><pre>git clone https://github.com/manjou/movie_api.git</pre></div>
+    </li>
+    <li>Navigate to your Project Directory
+      <div></div>
+      <div><pre>cd movie_api</pre></div>
+    </li>
+    <li>Install Dependencies
+      <div></div>
+      <div><pre>npm install</pre></div>
+      <p>This command will read the `package.json`file and install all the necessary dependencies in the `node_modules`directory.</p>
+    </li>
+    <li>Run the application
+      <div></div>
+      <div><pre>npm start</pre></div>
+      <p>This command will start the Node.js server on port 8080.</p>
+    </li>
+  </ol>
   <h2>Movie API - Endpoints</h2>
   <table>
     <tr>
@@ -202,7 +256,7 @@ td:nth-child(6) pre {
     </tr>
     <tr>
       <td>Return movies with a genre (description) by Genre.Name (e.g., "Thriller, Animation")</td>
-      <td>localhost:5000/movies/genre/</td>
+      <td>https://myflix-api-qeb7.onrender.com/movies/genre/</td>
       <td>GET</td>
       <td>
         <strong>query parameters in the URL:</strong>
