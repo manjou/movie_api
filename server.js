@@ -271,7 +271,7 @@ app.post(
 
 // DELETE / PULL -  Delete a movie from the Users list of favorite movies
 app.delete(
-  '/users/:Username/movies/:MovieID', 
+  '/users/:id/movies/:MovieID', 
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
@@ -279,7 +279,7 @@ app.delete(
     return res.status(400).send('Permission denied');
   }
     // CONDITION ENDS
-    await Users.findOneAndUpdate({ Username: req.params.Username }, {
+    await Users.findOneAndUpdate({ _idU: req.params.id }, {
       $pull: { FavoriteMovies: req.params.MovieID }
     },
     { new: true }) // This line makes sure that the updated document is returned
@@ -296,15 +296,15 @@ app.delete(
 
 // DELETE User
 app.delete(
-  '/users/:Username', 
+  '/users/:id', 
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user.Username !== req.params.Username){
-    return res.status(400).send('Permission denied');
-    }
+  //  if(req.user.Username !== req.params.Username){
+  //   return res.status(400).send('Permission denied');
+  //   }
     // CONDITION ENDS
-    await Users.findOneAndDelete({ Username: req.params.Username })
+    await Users.findOneAndDelete({ _id: req.params.id })
       .then((user) => {
         if (!user) {
           res.status(400).send(req.params.Username + ' was not found.');
