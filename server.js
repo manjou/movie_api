@@ -161,7 +161,7 @@ app.get(
     }
   );
 
-// Update User data, by Username
+// Update User data, by ID
 /* We´ll expect JSON in this format:
 {
 Username: String,
@@ -274,12 +274,12 @@ app.delete(
   '/users/:id/movies/:MovieID', 
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
-   // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user.Username !== req.params.Usernam){
-    return res.status(400).send('Permission denied');
-  }
+  //  // CONDITION TO CHECK USER AUTHORIZATION
+  //  if(req.user.Username !== req.params.Username){
+  //   return res.status(400).send('Permission denied');
+  // }
     // CONDITION ENDS
-    await Users.findOneAndUpdate({ _idU: req.params.id }, {
+    await Users.findOneAndUpdate({ _id: req.params.id }, {
       $pull: { FavoriteMovies: req.params.MovieID }
     },
     { new: true }) // This line makes sure that the updated document is returned
