@@ -308,8 +308,9 @@ app.delete(
       .then((user) => {
         if (!user) {
           res.status(400).send(req.params.Username + ' was not found.');
+          res.status(400).send('User with id ' + req.params.id + ' was not found.');
         } else {
-          res.status(200).send(req.params.Username + ' was deleted.');
+          res.status(200).send(user.Username + ' was deleted.');
         }
       })
       .catch((err) => {
