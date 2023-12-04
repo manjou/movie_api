@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended: true}));
 // Cross-Origin Resource Sharing (CORS)
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:5000'];
+let allowedOrigins = ['http://localhost:5000', 'http://localhost:1234'];
 
 app.use(cors({
   origin: (origin, callback) => {
