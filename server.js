@@ -245,16 +245,16 @@ app.put(
 
 // CREATE / PUSH - Add a movie to Users list of favorite movies
 app.post(
-  '/users/:Username/movies/:MovieID', 
+  '/users/:id/movies/:MovieID', 
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user.Username !== req.params.Username){
+   if(req.user.id !== req.params.id){
     return res.status(400).send('Permission denied');
     }
     // CONDITION ENDS
     await Users.findOneAndUpdate(
-      { Username: req.params.Username }, 
+      { _id: req.params.id }, 
       { $push: { FavoriteMovies: req.params.MovieID }},
       { new: true } // This line makes sure that the updated document is returned
     ) 
