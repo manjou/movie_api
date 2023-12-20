@@ -249,7 +249,7 @@ app.post(
   passport.authenticate('jwt', { session: false }), 
   async (req, res) => {
    // CONDITION TO CHECK USER AUTHORIZATION
-   if(req.user._id !== req.params.id){
+   if(req.user.id !== req.params.id){
     return res.status(400).send('Permission denied');
     }
     // CONDITION ENDS
