@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 // Cross-Origin Resource Sharing (CORS)
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:5000', 'http://localhost:1234'];
+let allowedOrigins = ['http://localhost:5000', 'http://localhost:1234', 'https://moveflix.onrender.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
