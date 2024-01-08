@@ -7,6 +7,7 @@ const express = require('express'),
   path = require('path'),
   Movies = Models.Movie,
   Users = Models.User;
+  const history = require('connect-history-api-fallback');
 
   require('dotenv').config();
 
@@ -16,6 +17,7 @@ const { check, validationResult } = require('express-validator');
 
 const app = express();
 app.use(express.json());
+app.use(history());
 app.use(express.urlencoded({extended: true}));
 
 // Cross-Origin Resource Sharing (CORS)
