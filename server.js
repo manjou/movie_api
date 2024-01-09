@@ -8,6 +8,7 @@ const express = require('express'),
   Movies = Models.Movie,
   Users = Models.User;
   const history = require('connect-history-api-fallback');
+  const history = require('connect-history-api-fallback');
 
   require('dotenv').config();
 
