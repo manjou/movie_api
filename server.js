@@ -24,7 +24,7 @@ app.use(express.json());
 // Cross-Origin Resource Sharing (CORS)
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:5000', 'http://localhost:1234', 'https://moveflix.onrender.com', 'http://localhost:4200', 'https://manjou.github.io/myFlix-Angular-client'];
+let allowedOrigins = ['https://manjou.github.io', 'http://localhost:5000', 'http://localhost:1234', 'https://moveflix.onrender.com', 'http://localhost:4200', 'https://manjou.github.io/myFlix-Angular-client'];
 
 app.use(cors({
   origin: (origin, callback) => {
